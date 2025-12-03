@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: New Project Image</h2>
+        <p><strong>URL:</strong> <code>https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/new%20project.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L25ldyBwcm9qZWN0LnBuZyIsImlhdCI6MTc2NDU5MTY3MCwiZXhwIjoxODUwOTkxNjcwfQ.4XgRA2Y12NooTKWprToDCf5YDsYuaci8zWtwcToMeLo</code></p>
+        <img 
+            src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/new%20project.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ21lbnQvbmV3IHByb2plY3QucG5nIiwiaWF0IjoxNzY0NTkxNjcwLCJleHAiOjE4NTA5OTE2NzB9.4XgRA2Y12NooTKWprToDCf5YDsYuaci8zWtwcToMeLo" 
+            alt="Lead Management - New Project"
+            onload="document.getElementById('status1').className='success'; document.getElementById('status1').textContent='✓ Image loaded successfully!'"
+            onerror="document.getElementById('status1').className='error'; document.getElementById('status1').textContent='✗ Failed to load image. Check console for details.'"
+        >
+        <p id="status1">Loading...</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Filter Image</h2>
+        <p><strong>URL:</strong> <code>https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/FILTER.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0ZJTFRFUi5wbmciLCJpYXQiOjE3NjQ3NjcyMzksImV4cCI6MzE3MTI0NzY3MjM5fQ.GFJqp8O3HryczS1btFJd0qu9HM74wKaSAIPk5WbPprw</code></p>
+        <img 
+            src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/FILTER.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0ZJTFRFUi5wbmciLCJpYXQiOjE3NjQ3NjcyMzksImV4cCI6MzE3MTI0NzY3MjM5fQ.GFJqp8O3HryczS1btFJd0qu9HM74wKaSAIPk5WbPprw" 
+            alt="Lead Management - Filter"
+            onload="document.getElementById('status2').className='success'; document.getElementById('status2').textContent='✓ Image loaded successfully!'"
+            onerror="document.getElementById('status2').className='error'; document.getElementById('status2').textContent='✗ Failed to load image. Check console for details.'"
+        >
+        <p id="status2">Loading...</p>
+    </div>
+
+    <div class="test-section">
+        <h2>Debugging Steps:</h2>
+        <ol>
+            <li>Press <strong>F12</strong> to open Developer Tools</li>
+            <li>Go to the <strong>Console</strong> tab to see error messages</li>
+            <li>Go to the <strong>Network</strong> tab and refresh the page to see which images fail</li>
+            <li>Common issues:
+                <ul>
+                    <li><strong>CORS Error:</strong> Server needs proper CORS headers</li>
+                    <li><strong>404 Not Found:</strong> Image doesn't exist at that URL</li>
+                    <li><strong>403 Forbidden:</strong> Token expired or insufficient permissions</li>
+                    <li><strong>Mixed Content:</strong> HTTP images on HTTPS page (or vice versa)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>Solutions:</h2>
+        <ul>
+            <li><strong>If tokens are expired:</strong> You need to regenerate the signed URLs from Supabase</li>
+            <li><strong>If images don't exist:</strong> Verify the images are still in your Supabase storage bucket</li>
+            <li><strong>If CORS error:</strong> Check your Supabase bucket CORS settings</li>
+            <li><strong>Network issues:</strong> Check your internet connection and firewall settings</li>
+        </ul>
+    </div>
+
+    <script>
+        // Log any console errors
+        window.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                console.error('Image failed to load:', e.target.src);
+                console.error('Error details:', e);
+            }
+        }, true);
+
+        // Test direct fetch
+        console.log('Testing image URLs...');
+        
+        fetch('https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/new%20project.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ21lbnQvbmV3IHByb2plY3QucG5nIiwiaWF0IjoxNzY0NTkxNjcwLCJleHAiOjE4NTA5OTE2NzB9.4XgRA2Y12NooTKWprToDCf5YDsYuaci8zWtwcToMeLo')
+            .then(response => {
+                console.log('Test 1 Response Status:', response.status);
+                console.log('Test 1 Response Headers:', [...response.headers.entries()]);
+                if (response.ok) {
+                    console.log('✓ Test 1: URL is accessible');
+                } else {
+                    console.error('✗ Test 1: URL returned error', response.status, response.statusText);
+                }
+            })
+            .catch(error => {
+                console.error('✗ Test 1: Network error', error);
+            });
+    </script>
+</body>
+</html>
+

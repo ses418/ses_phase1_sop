@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standard Operating Procedure - Lead Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --blue-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --green-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --purple-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --text-dark: #1a202c;
+            --text-light: #4a5568;
+            --text-muted: #718096;
+            --bg-light: #f7fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 30px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--primary-gradient);
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-size: 3.5em;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 120px;
+            height: 5px;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+        }
+
+        .module {
+            margin-top: 60px;
+            padding: 45px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .module:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .module::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--primary-gradient);
+        }
+
+        .module-title {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .module-title::before {
+            content: '📋';
+            font-size: 1.2em;
+            filter: grayscale(0);
+        }
+
+        .image-container {
+            margin: 35px 0;
+            text-align: center;
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .instructions {
+            margin-top: 35px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .instructions h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions h3::before {
+            content: '⚙️';
+            font-size: 1.1em;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding-left: 55px;
+            position: relative;
+            line-height: 1.8;
+            color: var(--text-light);
+            font-size: 1.05em;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary-gradient);
+            color: #ffffff;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1em;
+            box-shadow: var(--shadow-md);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .steps .sub-steps {
+            list-style-type: none !important;
+            margin-top: 18px;
+            margin-left: 0;
+            margin-bottom: 20px;
+            padding-left: 0;
+            counter-reset: none;
+        }
+
+        .steps .sub-steps li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            line-height: 1.8;
+            font-size: 0.96em;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .steps .sub-steps li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: none;
+            color: var(--primary-color);
+            width: auto;
+            height: auto;
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: 700;
+            font-size: 1.2em;
+        }
+
+        .summary-section {
+            margin-top: 50px;
+            padding: 45px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            border-radius: 16px;
+            border: 2px solid #bae6fd;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--blue-gradient);
+        }
+
+        .summary-title {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summary-title::before {
+            content: '📊';
+            font-size: 1.1em;
+        }
+
+        .summary-content {
+            background-color: var(--bg-white);
+            padding: 35px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .summary-content p {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .summary-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .summary-content h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--primary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.25em;
+            font-weight: 600;
+            padding-left: 20px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .summary-content ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .summary-content ul li {
+            margin-bottom: 12px;
+            line-height: 1.8;
+            color: var(--text-light);
+            padding-left: 10px;
+        }
+
+        .summary-content ul li::marker {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 2.8em;
+            }
+
+            .module {
+                padding: 35px;
+            }
+
+            .module-title {
+                font-size: 1.9em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 30px 25px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .module {
+                padding: 25px;
+                margin-top: 40px;
+            }
+
+            .module-title {
+                font-size: 1.6em;
+            }
+
+            .instructions {
+                padding: 25px;
+            }
+
+            .steps li {
+                padding-left: 50px;
+                font-size: 1em;
+            }
+
+            .summary-section {
+                padding: 30px;
+            }
+
+            .summary-title {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .module {
+                padding: 20px;
+            }
+
+            .module-title {
+                font-size: 1.4em;
+            }
+
+            .steps li {
+                padding-left: 45px;
+                font-size: 0.95em;
+            }
+
+            .steps li::before {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9em;
+            }
+        }
+
+        /* Print styles for PDF export */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+
+            .module {
+                page-break-inside: avoid;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Standard Operating Procedure</h1>
+        
+        <div class="module">
+            <h2 class="module-title">Module 1: Lead Management</h2>
+            
+            <div class="instructions">
+                <h3>Module Overview:</h3>
+                <ol class="steps">
+                    <li><strong>Purpose & Scope:</strong>
+                        <ul class="sub-steps">
+                            <li>The Lead Management module is your central hub for managing and analyzing all incoming business leads and project opportunities.</li>
+                            <li>This system helps you track, categorize, and prioritize leads based on validation scores, project types, and geographical locations.</li>
+                            <li>Access comprehensive information about projects, clients, and associated leads all in one unified interface.</li>
+                            <li>Monitor lead progression from initial discovery through to conversion and active engagement.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Key Features & Navigation:</strong>
+                        <ul class="sub-steps">
+                            <li><strong>Search Functionality:</strong> Use the search bar to quickly find projects by title, client name, or lead information.</li>
+                            <li><strong>Filter Options:</strong> Filter leads by Client/Lead dropdown to narrow down your view and focus on specific categories.</li>
+                            <li><strong>Project Tabs:</strong> Navigate between "New Projects", "Viewed Projects", and "Conversation" tabs to organize your workflow.</li>
+                            <li><strong>Project Counter:</strong> Real-time count of projects in each category (e.g., 179 New Projects) helps prioritize your workload.</li>
+                            <li><strong>Data Table:</strong> Organized columns display S.NO, PROJECT TITLE, TYPE (PP/RD), LOCATION, VALIDATION SCORE, and LEADS count.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Understanding Project Types:</strong>
+                        <ul class="sub-steps">
+                            <li><strong>PP (Proposed Project):</strong> Projects in planning or proposal stage requiring active pursuit and engagement.</li>
+                            <li><strong>RD (Research & Development):</strong> Projects focused on R&D activities, innovation, and technical development opportunities.</li>
+                            <li>The TYPE column helps you quickly identify the nature of each project for better categorization and follow-up strategies.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Validation Score System:</strong>
+                        <ul class="sub-steps">
+                            <li>Each project is assigned a validation score that indicates lead quality and conversion potential.</li>
+                            <li>Higher validation scores suggest better-qualified leads worthy of immediate attention and resources.</li>
+                            <li>Use validation scores to prioritize outreach efforts and allocate team resources effectively.</li>
+                            <li>Score ranges help identify hot leads versus those requiring nurturing campaigns.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Interactive Project Selection:</strong>
+                        <ul class="sub-steps">
+                            <li>Click on any row in the project table to view comprehensive details about that specific project.</li>
+                            <li>Accessing a project row reveals three key information sections: Project Details, Client Information, and Lead Data.</li>
+                            <li>This interactive approach ensures you can quickly drill down into specifics without navigating away from the main dashboard.</li>
+                            <li>All related information is presented in an organized, easy-to-read format for efficient decision-making.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Getting Started:</strong>
+                        <ul class="sub-steps">
+                            <li><strong>Step 1:</strong> Start with the "New Projects" tab to see all recently added leads requiring initial review.</li>
+                            <li><strong>Step 2:</strong> Use the search and filter tools to focus on high-priority projects based on location, type, or validation score.</li>
+                            <li><strong>Step 3:</strong> Click on project rows to review detailed information and assess opportunity fit.</li>
+                            <li><strong>Step 4:</strong> Mark projects as viewed, initiate conversations, or generate cold emails based on your assessment.</li>
+                            <li><strong>Step 5:</strong> Track project progression through the tabs as you move leads through your sales pipeline.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/new%20project.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L25ldyBwcm9qZWN0LnBuZyIsImlhdCI6MTc2NDU5MTY3MCwiZXhwIjoxODUwOTkxNjcwfQ.4XgRA2Y12NooTKWprToDCf5YDsYuaci8zWtwcToMeLo" alt="Lead Management - New Project">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Click on any row in the project list to view detailed information.</li>
+                    <li>Upon clicking the row, you will be able to see the project information.</li>
+                    <li>You will also be able to view the client information associated with the project.</li>
+                    <li>Additionally, you can access the lead information related to the selected project.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/mark%20as%20viewed.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L21hcmsgYXMgdmlld2VkLnBuZyIsImlhdCI6MTc2NDU5MTg5OSwiZXhwIjoxODUwOTkxODk5fQ.4DNNqxOidPA6_vIs5CxJHvHwGhQ6hO8tlNCdHhYxdeA" alt="Lead Management - Mark as Viewed">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Click on the "Mark as Viewed" button or option for the projects you want to mark.</li>
+                    <li>Once you click "Mark as Viewed", those projects will be listed in the viewed projects section.</li>
+                    <li>The marked projects will now appear in your viewed projects list for easy reference.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/MAIL%20GENERATION.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L01BSUwgR0VORVJBVElPTi5wbmciLCJpYXQiOjE3NjQ1OTI0MDAsImV4cCI6MTg1MDk5MjQwMH0.LcthGLDAZhRxSvz9m2BONRkWOTympFJoS3YV1nW8m9M" alt="Lead Management - Mail Generation">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Click on the "Generate Mail" button to generate the respective lead cold mail.</li>
+                    <li>You can use the "Select All" option to select multiple leads at once.</li>
+                    <li>After selecting the leads, click "Generate Mail" to generate multiple lead cold mails simultaneously.</li>
+                    <li>Once the mail is generated, you will receive a notification confirming the generation.</li>
+                    <li>A "View Mail" button will appear on the respective cold mail generated lead.</li>
+                    <li>Click on the "View Cold Mail" button to easily navigate to the respective lead's generated cold mail.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/MANAGE%20PROJECTS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L01BTkFHRSBQUk9KRUNUUy5wbmciLCJpYXQiOjE3NjQ1OTI5MTcsImV4cCI6MTg1MDk5MjkxN30.SszRlCPnkFPbYIr7dx_pyTyRPTh2--CoaYUQfpuHoGo" alt="Lead Management - Manage Projects">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Use the management buttons to easily manage your projects.</li>
+                    <li>New projects will be visible on the "New Projects" page/tab.</li>
+                    <li>Projects that you have marked as viewed will be listed in the "Viewed Projects" section.</li>
+                    <li>Projects where conversations have been started will be listed in the "Conversation" tab.</li>
+                    <li>Navigate between different tabs to view projects based on their status and manage them accordingly.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/analatics.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L2FuYWxhdGljcy5wbmciLCJpYXQiOjE3NjQ1OTQyNDgsImV4cCI6MTg1MDk5NDI0OH0.ykRXfrS_Uk4zpvH_s_Sz0wmydlErHXjt_pvEY3KJR2c" alt="Lead Management - Analytics">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Click on the "Upload" button to upload projects in Excel format.</li>
+                    <li>Click on the "Filter" button to apply filters related to the projects.</li>
+                    <li>Use the search or quick view feature to see client and lead names as a quick result.</li>
+                    <li>Use the analytics feature to view the analytics of the Lead Management page, including insights and statistics about your projects, clients, and leads.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/FILTER.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0ZJTFRFUi5wbmciLCJpYXQiOjE3NjQ3NjcyMzksImV4cCI6MzE3MTI0NzY3MjM5fQ.GFJqp8O3HryczS1btFJd0qu9HM74wKaSAIPk5WbPprw" alt="Lead Management - Filter">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Click on the "Filter" button to open the filter options panel.</li>
+                    <li>Apply filters to narrow down your search and view specific projects based on your criteria.
+                        <ul class="sub-steps">
+                            <li>Filter by project status (New, Viewed, Conversation).</li>
+                            <li>Filter by date range to view projects from specific time periods.</li>
+                            <li>Filter by client or company name to find specific leads.</li>
+                            <li>Filter by lead source to track where your projects are coming from.</li>
+                            <li>Filter by assigned owner to view projects by team member.</li>
+                        </ul>
+                    </li>
+                    <li>Combine multiple filters to refine your search results further.</li>
+                    <li>The filtered results will be displayed immediately in the project list.</li>
+                    <li>You can clear individual filters or reset all filters to view the complete list again.</li>
+                    <li>Save your frequently used filter combinations for quick access in future sessions.</li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Lead Management Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Capture, qualify, assign, nurture, and convert leads efficiently.</p>
+                    <p><strong>Audience:</strong> SDRs, sales reps, and managers using the Lead Management page.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Add leads: import CSV, connect integrations, or capture via forms.</li>
+                        <li>Qualify: verify contact info, apply lead score, add key notes.</li>
+                        <li>Assign: route to the right owner by territory, product, or round-robin.</li>
+                        <li>Engage: start a cadence (emails/calls), set tasks, and log outcomes.</li>
+                        <li>Advance: update stage, schedule next steps, and move qualified leads to opportunities.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Lead fields: name, email/phone, company, source, status/stage.</li>
+                        <li>Routing rules: territories, industry, or round-robin settings.</li>
+                        <li>Cadences: approved email templates, call scripts, and touch schedules.</li>
+                        <li>Compliance: consent tracking for email/SMS; suppression lists enabled.</li>
+                    </ul>
+
+                    <h4>Capture Leads</h4>
+                    <ul>
+                        <li>Web forms: embed on site; map fields; enable double opt-in if required.</li>
+                        <li>Imports: upload CSV/XLSX; dedupe by email/phone; preview mapping.</li>
+                        <li>Integrations: sync from ads, events, chat, and landing pages.</li>
+                        <li>Manual entry: quick add with inline validation and mandatory fields.</li>
+                    </ul>
+
+                    <h4>Qualify & Enrich</h4>
+                    <ul>
+                        <li>Profile checks: validate email format and phone; add role and industry.</li>
+                        <li>Lead scoring: define points for fit (firmographics) and intent (activity).</li>
+                        <li>Enrichment: pull company size, website, and tech stack if available.</li>
+                        <li>Notes: add context from first touch; log pain points and timeline.</li>
+                    </ul>
+
+                    <h4>Organize & Assign</h4>
+                    <ul>
+                        <li>Queues: new, unworked, hot, and nurture queues by rules.</li>
+                        <li>Ownership: auto-assign; allow manual reassignment with audit trail.</li>
+                        <li>Priority: flag high-score leads; set due dates and SLA targets.</li>
+                        <li>Tags: label by campaign, product interest, or event source.</li>
+                    </ul>
+
+                    <h4>Engage & Follow Up</h4>
+                    <ul>
+                        <li>Cadences: multi-touch sequences across email/call/LinkedIn.</li>
+                        <li>Tasks: create call tasks; schedule reminders and next steps.</li>
+                        <li>Templates: use approved messages with personalization tokens.</li>
+                        <li>Logging: record outcomes (connected/not, interest, objections) and next action.</li>
+                    </ul>
+
+                    <h4>Pipeline & Status</h4>
+                    <ul>
+                        <li>Stages: New, Contacted, Qualified, Disqualified, Converted.</li>
+                        <li>Disposition: reasons for disqualification; feed back to marketing.</li>
+                        <li>SLA: time-to-first-touch and follow-up intervals; highlight breaches.</li>
+                        <li>Conversion: create opportunity or proposal; link records for continuity.</li>
+                    </ul>
+
+                    <h4>Reporting & Analytics</h4>
+                    <ul>
+                        <li>Funnel: leads by source, contact rate, qualification rate, conversion rate.</li>
+                        <li>Activity: touches per lead, response rates, and cadence performance.</li>
+                        <li>Velocity: time from capture to first touch and to qualification.</li>
+                        <li>Quality: duplicate rate, invalid contact data, and disqualification reasons.</li>
+                    </ul>
+
+                    <h4>Automation</h4>
+                    <ul>
+                        <li>Routing: auto-assign by territory or round-robin; reassign on inactivity.</li>
+                        <li>Scoring updates: adjust scores on opens, clicks, replies, or visits.</li>
+                        <li>Triggers: start nurture when unresponsive; escalate hot leads to priority.</li>
+                        <li>Sync: push qualified leads to CRM; update suppression on opt-out.</li>
+                    </ul>
+
+                    <h4>Permissions & Safety</h4>
+                    <ul>
+                        <li>Access: role-based view/edit/export; restrict bulk actions.</li>
+                        <li>PII: mask sensitive fields in lists; reveal only for authorized users.</li>
+                        <li>Consent: honor opt-out; include unsubscribe in emails; log proof of consent.</li>
+                        <li>Audits: track ownership changes, edits, and activity logs.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>Duplicates: refine dedupe keys; merge records keeping recent activity.</li>
+                        <li>Low contact rate: verify data quality; improve subject lines and timing.</li>
+                        <li>Routing errors: review rules and territory mappings; fix owner assignments.</li>
+                        <li>Cadence underperformance: test variants; shorten steps; adjust spacing.</li>
+                        <li>SLA issues: set alerts; rebalance workloads; add backup owners.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Clear definitions: agree on lead fit criteria and stage transitions.</li>
+                        <li>Single owner: one accountable rep per lead; watchers for stakeholders.</li>
+                        <li>Short cycles: quick first touch; consistent follow-ups; stop when clearly unqualified.</li>
+                        <li>Feedback loop: share disqualify reasons and top objections with marketing.</li>
+                        <li>Continuous improvement: review funnel metrics weekly; iterate cadences and routing.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 2: Cold Mail</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/INDUDIAL%20COMMON%20MAIL%20BUTTONS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0lORFVESUFMIENPTU1PTiBNQUlMIEJVVFRPTlMucG5nIiwiaWF0IjoxNzY0NTk0NzczLCJleHAiOjE4NTA5OTQ3NzN9.V0CBG8xk37EMnIh1qIzDsOdQ6EBipX_Y5EYGpGEH5IA" alt="Cold Mail - Individual Common Mail Buttons">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Use the filter options to filter projects based on the type of project.</li>
+                    <li>You can view your individual ID-generated mails in your personal mail section.</li>
+                    <li>You can also view mails generated by other users in the shared or common mail section.</li>
+                    <li>Navigate between individual and common mail views to access all generated cold mails.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/COLD%20MAIL%20MAIL%20DETAILS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0NPTEQgTUFJTCBNQUlMIERFVEFJTFMucG5nIiwiaWF0IjoxNzY0NTk1NDA4LCJleHAiOjE4NTA5OTU0MDh9.NTEtp5sDpuZ-F_EWbNc7FztIhNK5R1QahkJDN734PLM" alt="Cold Mail - Mail Details">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>View the client name and project title displayed for the client and project mail management.</li>
+                    <li>For each particular project, you can see which role the client is working in (M1, M2, M3).</li>
+                    <li>The role information (M1, M2, M3) indicates the client's role within that specific project.</li>
+                    <li>You can view all the generated mails that were sent to the particular lead for that project.</li>
+                    <li>Navigate through the mail details to see the complete history of generated mails for each lead.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/lead%20managnment/EMAIL%20DRAFT%20EDITOR.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGVhZCBtYW5hZ25tZW50L0VNQUlMIERSQUZUIEVESVRPUi5wbmciLCJpYXQiOjE3NjQ1OTY4MDIsImV4cCI6MTg1MDk5NjgwMn0.JDP0wJdt5vtJsvqf6_-_PmEWd1nA8mqTwMzJdN0Hai4" alt="Cold Mail - Email Draft Editor">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Highlight any text in the email draft that you want to rephrase.</li>
+                    <li>After highlighting, you will be able to rephrase the highlighted text using the available options.</li>
+                    <li>Navigate to the AI-generated A draft to view the first version of the generated mail.</li>
+                    <li>Navigate to the AI-generated B draft to view the second version of the generated mail.</li>
+                    <li>You can edit the generated mail using the grammar check feature to ensure proper grammar and spelling.</li>
+                    <li>Use the rephrasing feature to improve and modify the content of the generated mail.</li>
+                    <li>Switch between the AI-generated A draft and B draft to compare and select the best version.</li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Cold Mail Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Reach new prospects, start conversations, and book meetings with compliant cold email.</p>
+                    <p><strong>Audience:</strong> SDRs, founders, and sales teams running one-to-one outreach at scale.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Prepare inboxes: authenticate domains (SPF/DKIM/DMARC) and warm senders.</li>
+                        <li>Build target list: define ICP, verify emails, and de-duplicate contacts.</li>
+                        <li>Write sequence: 3–6 short touches across email and optional LinkedIn/call.</li>
+                        <li>Personalize: add relevant hooks from prospect/company context.</li>
+                        <li>Send safely: throttle volume, randomize timings, and monitor health.</li>
+                        <li>Track outcomes: opens, replies, positives/negatives, and meetings booked.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Authenticated domains: SPF, DKIM, DMARC aligned; separate subdomain for outreach.</li>
+                        <li>Warmed inboxes: gradual daily send ramp; diverse content; real replies.</li>
+                        <li>Consent posture: lawful basis for outreach per region; suppression lists enabled.</li>
+                        <li>Data quality: validated emails, correct names/titles, and firmographic fit.</li>
+                    </ul>
+
+                    <h4>Build Target List</h4>
+                    <ul>
+                        <li>ICP filters: industry, company size, geography, seniority, relevant tech.</li>
+                        <li>Sources: events, referrals, directories, intent data; avoid scraped low-quality lists.</li>
+                        <li>Verification: check email deliverability; flag risky addresses (role accounts, catch-alls).</li>
+                        <li>Hygiene: remove duplicates; enforce frequency caps and quiet hours.</li>
+                    </ul>
+
+                    <h4>Compose Emails</h4>
+                    <ul>
+                        <li>Subject lines: short, specific, non-spammy; avoid clickbait and ALL CAPS.</li>
+                        <li>First line: personalized insight or trigger (recent post, hiring, tech change).</li>
+                        <li>Value proposition: one clear benefit tied to their context.</li>
+                        <li>CTA: simple ask (15-min intro, quick reply) with flexible timing options.</li>
+                        <li>Format: plain text or light HTML; 60–120 words; no heavy images or links.</li>
+                        <li>Signature: name, title, company, contact, and compliance footer.</li>
+                    </ul>
+
+                    <h4>Personalization</h4>
+                    <ul>
+                        <li>Tokens: {{first_name}}, {{company}}, {{role}}, with safe fallbacks.</li>
+                        <li>Micro-hooks: recent news, hiring, stack, metrics, or shared connections.</li>
+                        <li>Segmented templates: align messaging by industry and seniority.</li>
+                        <li>Safety checks: validate tokens exist; skip send if personalization missing.</li>
+                    </ul>
+
+                    <h4>Deliverability</h4>
+                    <ul>
+                        <li>Ramp schedule: start 10–20/day per inbox; increase by 5–10/day weekly.</li>
+                        <li>Throttling: limit hourly sends; add random delays and send windows.</li>
+                        <li>Content checks: avoid spam trigger words; maintain text-to-link ratio.</li>
+                        <li>List health: hard bounces auto-suppress; re-verify high-risk domains.</li>
+                        <li>Reputation: spread sends across multiple warmed inboxes; rotate if needed.</li>
+                    </ul>
+
+                    <h4>Sending & Cadence</h4>
+                    <ul>
+                        <li>Sequence length: 3–6 steps over 10–21 days; vary angles and mediums.</li>
+                        <li>Timing: business hours of prospect's timezone; avoid Mondays 9am/Fridays late.</li>
+                        <li>Branching: stop on reply; pause on OOO; shift to nurture if no fit.</li>
+                        <li>A/B tests: subject lines, CTA phrasing, and opener variants.</li>
+                    </ul>
+
+                    <h4>Tracking & Reply Handling</h4>
+                    <ul>
+                        <li>Signals: opens, clicks (sparingly), and replies categorized by intent.</li>
+                        <li>Dispositions: positive, neutral, objection, not a fit, unsubscribe.</li>
+                        <li>Next steps: schedule meeting, send case study, or hand off to AE.</li>
+                        <li>Notes: log context and objections for future messaging improvements.</li>
+                    </ul>
+
+                    <h4>Compliance & Safety</h4>
+                    <ul>
+                        <li>Regional rules: CAN-SPAM/CASL/GDPR; include company address and opt-out.</li>
+                        <li>Unsubscribe: honor immediately; add to suppression list; confirm removal.</li>
+                        <li>Data privacy: minimize PII; secure storage; restrict exports.</li>
+                        <li>Governance: approved templates; review for sensitive industries or claims.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>High bounce rate: stop sends; re-verify list; check DNS authentication and send limits.</li>
+                        <li>Low reply rate: improve ICP filters, first line relevance, and CTA clarity.</li>
+                        <li>Spam folder: reduce links/images, avoid promotional tone, and slow ramp.</li>
+                        <li>Blocks/rate limits: lower volume per inbox; distribute across accounts; extend delays.</li>
+                        <li>Token errors: add fallbacks; implement pre-send validation; quarantine bad records.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Relevance over volume: tight targeting beats broad blasting.</li>
+                        <li>Single ask: one clear CTA; remove friction by offering times or a lightweight reply.</li>
+                        <li>Keep it human: natural language, no marketing fluff, and genuine curiosity.</li>
+                        <li>Systematic follow-up: consistent cadence; stop on clear no; respect boundaries.</li>
+                        <li>Continuous learning: review reply reasons weekly; refine templates and ICP.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 3: Newsletter</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/Newsletter/NEWS%20LETTER%20LANDING%20PAGE.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvTmV3c2xldHRlci9ORVdTIExFVFRFUiBMQU5ESU5HIFBBR0UucG5nIiwiaWF0IjoxNzY0NzUxODM5LCJleHAiOjMzMzAwNzUxODM5fQ.m_MwqCD-h6pJxvn8ePR72LC49zhd4hLsM3FQWREMLs8" alt="Newsletter - Landing Page">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>You can create a single newsletter for individual campaigns.</li>
+                    <li>You can also create multiple campaigns for newsletter distribution.</li>
+                    <li>Use the top header to switch between single newsletter and multiple campaign listing views.</li>
+                    <li>In the listing view, you can see the campaign name for each newsletter or campaign.</li>
+                    <li>Before the scheduled date, you need to preview and approve the newsletter.</li>
+                    <li>The review process is managed through the task management system.</li>
+                    <li>You can customize the newsletter template according to your requirements.</li>
+                    <li>You can also customize the email groups for sending the newsletter to specific recipients.</li>
+                    <li>Navigate through the listings to manage your newsletters and campaigns effectively.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/Newsletter/news%20letter%20template.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvTmV3c2xldHRlci9uZXdzIGxldHRlciB0ZW1wbGF0ZS5wbmciLCJpYXQiOjE3NjQ3NTMyNzgsImV4cCI6MzMzMDA3NTMyNzh9.DFitIuIWzMdo9862XAvYTBKkFW0dwZrd6OcSIXdivYM" alt="Newsletter - Template Editor">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Select the sections you want to include in your newsletter template.</li>
+                    <li>Upload or drag the sections to the canvas area to build your newsletter layout.</li>
+                    <li>Arrange the sections in your desired order by dragging and dropping them on the canvas.</li>
+                    <li>Customize each section by editing the content, images, and styling options.</li>
+                    <li>Preview your newsletter template to see how it will appear to recipients.</li>
+                    <li>Once you are satisfied with the design, click the "Save" button to save your newsletter template.</li>
+                    <li>The saved template can be reused for future newsletter campaigns.</li>
+                    <li>You can edit or update the template at any time before sending the newsletter.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/Newsletter/EMAIL%20GROUPS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvTmV3c2xldHRlci9FTUFJTCBHUk9VUFMucG5nIiwiaWF0IjoxNzY0NzUzNzA2LCJleHAiOjMzMzAwNzUzNzA2fQ.sVci24eQf1aI8A4_gHoKA3zmG1NPepSEhWfAfa2cdfU" alt="Newsletter - Email Groups">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>View all the created email groups in the email groups section.</li>
+                    <li>Each group displays the group name and the number of contacts within that group.</li>
+                    <li>Select the checkbox next to the group(s) you want to include in your newsletter distribution.</li>
+                    <li>The respective emails from the selected group(s) will be grouped together for the newsletter campaign.</li>
+                    <li>You can select multiple groups by checking multiple checkboxes to combine different email lists.</li>
+                    <li>Review your selected groups to ensure you are sending to the correct audience.</li>
+                    <li>Proceed with scheduling or sending your newsletter to the selected email groups.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/Newsletter/CAMPIGN.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvTmV3c2xldHRlci9DQU1QSUdOLnBuZyIsImlhdCI6MTc2NDc1NDQ5OSwiZXhwIjozMzMwMDc1NDQ5OX0.0QMh6s4EjDYfP70Lhnn1RbasD23_GT4R6J6D4MqFOug" alt="Newsletter - Campaign Generation">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>When you are ready to send the newsletter, you will see two generation options: "Generate Now" and "Schedule Generate".</li>
+                    <li>Click "Generate Now" if you want the newsletter to start generating and sending immediately.</li>
+                    <li>When you click "Generate Now", the newsletter campaign will begin processing and sending right away.</li>
+                    <li>Click "Schedule Generate" if you want to schedule the newsletter for a future date and time.</li>
+                    <li>When you choose "Schedule Generate", the newsletter campaign will start creating before the scheduled start date.</li>
+                    <li>Set the desired start date and time for your scheduled newsletter campaign.</li>
+                    <li>The system will automatically begin generating and sending the newsletter at the scheduled time.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/Newsletter/NEWSLETTER%20ENAIL%20TEMPLATE%20CUSTOMIZATION.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvTmV3c2xldHRlci9ORVdTTEVUVEVSIEVOQUlMIFRFTVBMQVRFIENVU1RPTUlaQVRJT04ucG5nIiwiaWF0IjoxNzY0NzU1MjU5LCJleHAiOjMxNzEyNDc1NTI1OX0.wd2uGfmXprZJZC2PElQ4UUdvqB1SdLbjlclCAnYo2IU" alt="Newsletter - Email Template Customization">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Access the newsletter template customization section to personalize your newsletter design.</li>
+                    <li>Customize the newsletter template by editing colors, fonts, layout, and content sections.</li>
+                    <li>Add or remove sections from the template to match your newsletter requirements.</li>
+                    <li>Customize the email groups for sending the newsletter to specific target audiences.</li>
+                    <li>Select and configure the appropriate email groups that will receive the newsletter.</li>
+                    <li>Before the scheduled date, you need to preview the newsletter to ensure everything looks correct.</li>
+                    <li>Review the newsletter content, design, and recipient groups carefully.</li>
+                    <li>Approve the newsletter once you are satisfied with the preview.</li>
+                    <li>The review and approval process is managed through the task management system.</li>
+                    <li>Track the status of your newsletter approval through the task management interface.</li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Newsletter Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Create, send, and track a newsletter campaign safely and effectively.</p>
+                    <p><strong>Audience:</strong> Non-technical users managing one-to-many email communications.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Prepare your audience: ensure subscribers have consent and valid emails.</li>
+                        <li>Choose or create a template: pick a layout and set your brand basics.</li>
+                        <li>Compose content: write a clear subject, concise body, and add images/links.</li>
+                        <li>Test and approve: send test emails, check links, and get sign-off if needed.</li>
+                        <li>Schedule or send: set a time window or send immediately.</li>
+                        <li>Monitor results: watch delivery, opens, clicks, and unsubscribes.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Verified sender identity: domain authenticated (SPF/DKIM) and from-address approved.</li>
+                        <li>Consent and compliance: subscribers opted in; unsubscribe link present in footer.</li>
+                        <li>Clean list: remove hard bounces and duplicates; honor suppression lists.</li>
+                    </ul>
+
+                    <h4>Create Your Audience</h4>
+                    <ul>
+                        <li>Add subscribers: import CSV or add manually with email and key attributes.</li>
+                        <li>Segment: filter by tags or behaviors (e.g., "active in last 30 days").</li>
+                        <li>Suppression: exclude unsubscribed, hard bounces, and prior complaints.</li>
+                    </ul>
+
+                    <h4>Compose Your Newsletter</h4>
+                    <ul>
+                        <li>Subject line: clear, benefit-led, under ~60 characters; avoid spammy words.</li>
+                        <li>From name and reply-to: recognizable brand and monitored inbox.</li>
+                        <li>Template: select a responsive layout; keep text-to-image balanced.</li>
+                        <li>Personalization: insert fields like {{first_name}} with sensible fallbacks.</li>
+                        <li>Links and tracking: use UTM parameters for analytics; validate all links.</li>
+                        <li>Accessibility: add alt text to images; keep contrast and readable font sizes.</li>
+                    </ul>
+
+                    <h4>Preview & Test</h4>
+                    <ul>
+                        <li>Rendering: preview desktop/mobile; check dark mode if available.</li>
+                        <li>Test sends: send to yourself and a small internal list; verify spam folder.</li>
+                        <li>QA checklist: subject, from, reply-to, footer/legal, unsubscribe link, all links/images.</li>
+                        <li>A/B testing (optional): try two subject lines or hero blocks; define success metric.</li>
+                    </ul>
+
+                    <h4>Schedule & Send</h4>
+                    <ul>
+                        <li>Timing: choose audience-friendly hours; respect time zones and quiet hours.</li>
+                        <li>Throttling: use rate limits if warming up a domain or large sends.</li>
+                        <li>Final review: confirm target segment size and exclusions; lock content version.</li>
+                        <li>Launch: start the send or schedule; watch initial health indicators.</li>
+                    </ul>
+
+                    <h4>Monitor & Follow Up</h4>
+                    <ul>
+                        <li>Delivery: track sent, bounces (soft vs hard), and complaints; investigate spikes.</li>
+                        <li>Engagement: open rate, CTR, unsubscribes; compare A/B variants.</li>
+                        <li>Suppressions: auto-suppress complaints/hard bounces; update lists promptly.</li>
+                        <li>Learnings: note top-performing links, sections, and subject patterns for next time.</li>
+                        <li>Next action: send a reminder to non-openers (respect frequency caps) or follow-up content.</li>
+                    </ul>
+
+                    <h4>Compliance & Safety</h4>
+                    <ul>
+                        <li>Always include unsubscribe and physical address; avoid deceptive subjects.</li>
+                        <li>Honor consent and preferences; provide clear opt-out.</li>
+                        <li>Respect data privacy: do not expose PII in content or links.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>High bounce rate: pause sends, validate list quality, check domain authentication.</li>
+                        <li>Low opens: revisit subject line, send timing, and sender reputation.</li>
+                        <li>Links broken: run link checker; fix redirects and tracking parameters.</li>
+                        <li>Spam folder: reduce aggressive wording, improve text ratio, and warm up sending.</li>
+                        <li>Complaints: tighten targeting, frequency caps, and expectation-setting at opt-in.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>One primary message and one CTA; keep layout scannable.</li>
+                        <li>Relevance beats volume: segment by interests and recency.</li>
+                        <li>Maintain cadence: predictable schedule, but avoid over-sending.</li>
+                        <li>Iterate: test small changes regularly and document what works.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 4: Task Management</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/TASKS/NEWS%20LETTER%20TASK.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvVEFTS1MvTkVXUyBMRVRURVIgVEFTSy5qcGVnIiwiaWF0IjoxNzY0NzU4MTEyLCJleHAiOjMxNzEyNDc1ODExMn0.bbm08FHdpUxTItziqYUQwlEVfo6JoOj5PtE3l4RHjqQ" alt="Task Management - Dashboard Overview">
+            </div>
+
+            <div class="instructions">
+                <h3>Overview:</h3>
+                <ol class="steps">
+                    <li>The Task Management system provides a centralized dashboard to manage daily tasks, individual assignments, and team collaboration.</li>
+                    <li>Access the dashboard to view all pending tasks organized by categories: Daily Tasks, Individual Tasks, and Assigned Tasks to Team.</li>
+                    <li>Each task card displays essential information including task title, description, progress status, and action buttons.</li>
+                    <li>Use the search bar at the top to quickly find specific tasks, assignments, or deadlines.</li>
+                    <li>Filter tasks by status, priority, or assignment type using the filter icon.</li>
+                </ol>
+            </div>
+
+            <div class="instructions">
+                <h3>Daily Tasks Management:</h3>
+                <ol class="steps">
+                    <li>Lead Management Lookup:
+                        <ul class="sub-steps">
+                            <li>Check lead management and review lead activities regularly.</li>
+                            <li>Monitor new leads that have been added to the system.</li>
+                            <li>Click "Go to Lead Management Lookup" to navigate to the detailed view.</li>
+                            <li>Track completion progress with the visual progress bar.</li>
+                            <li>Mark tasks as complete when all lead reviews are finished.</li>
+                        </ul>
+                    </li>
+                    <li>Newsletter Generation:
+                        <ul class="sub-steps">
+                            <li>Daily requirement: Generate a minimum of 5 newsletters.</li>
+                            <li>Access the newsletter creation interface directly from the task card.</li>
+                            <li>Track your daily progress toward the 5 newsletter target.</li>
+                            <li>Click "Mark as Complete" once you have generated the required number of newsletters.</li>
+                            <li>Use "Go to Newsletter Generation" to navigate to the newsletter creation page.</li>
+                        </ul>
+                    </li>
+                    <li>Newsletters Waiting Review:
+                        <ul class="sub-steps">
+                            <li>Review newsletters pending approval before they are scheduled or sent.</li>
+                            <li>The task card displays the count of newsletters in the review batch (e.g., "3 newsletters").</li>
+                            <li>Click on the newsletter count button to see the list of pending reviews.</li>
+                            <li>Navigate to "Go to Newsletters Waiting Review" to access the review interface.</li>
+                            <li>Approve or request changes for each newsletter in the queue.</li>
+                            <li>Ensure all newsletters are reviewed before their scheduled send date.</li>
+                        </ul>
+                    </li>
+                    <li>LinkedIn Posts Waiting Review:
+                        <ul class="sub-steps">
+                            <li>Review LinkedIn posts pending approval before publishing.</li>
+                            <li>The task card shows the number of posts awaiting review (e.g., "4 posts").</li>
+                            <li>Click the post count button to view details of pending LinkedIn posts.</li>
+                            <li>Use "Go to LinkedIn Posts Waiting Review" to navigate to the review page.</li>
+                            <li>Review content, formatting, and scheduling for each post.</li>
+                            <li>Approve posts for publishing or send feedback for revisions.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/TASKS/NEWS%20LETTER%20TASK.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvVEFTS1MvTkVXUyBMRVRURVIgVEFTSy5qcGVnIiwiaWF0IjoxNzY0NzU4ODc2LCJleHAiOjMxNzEyNDc1ODg3Nn0.GmbVB-i-SCMS5y_jwrEB0gZ4aO7pKLVYdUSqMeniowc" alt="Task Management - Individual Tasks">
+            </div>
+
+            <div class="instructions">
+                <h3>Individual Tasks:</h3>
+                <ol class="steps">
+                    <li>View Projects Waiting for Your Attention:
+                        <ul class="sub-steps">
+                            <li>Access the "Individual Tasks" tab to see all projects assigned to you.</li>
+                            <li>View project details including name, status, priority level, and due dates.</li>
+                            <li>Check deadlines for each pending project to prioritize your work.</li>
+                            <li>Mark projects as viewed or in-progress to update their status.</li>
+                            <li>Track your workload and manage time effectively across multiple projects.</li>
+                        </ul>
+                    </li>
+                    <li>Team Member Assigned Tasks:
+                        <ul class="sub-steps">
+                            <li>All tasks assigned by team members appear in the Individual Tasks section.</li>
+                            <li>View who assigned each task and when it was assigned.</li>
+                            <li>Read task descriptions, requirements, and expected deliverables carefully.</li>
+                            <li>Check the priority level and deadline set by the assigning team member.</li>
+                            <li>Update task status as you progress (pending → in-progress → completed).</li>
+                            <li>Communicate with the assigner if you need clarification or additional resources.</li>
+                            <li>Use comments or notes to document progress and decisions.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/TASKS/CREATE%20TASK.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvVEFTS1MvQ1JFQVRFIFRBU0sucG5nIiwiaWF0IjoxNzY0NzU5MjI4LCJleHAiOjMxNTUzNjQ3NTkyMjh9.ogOcoMJ90NmOunpmPyOLyR3LfG8ISKouJjHoZVoB7QI" alt="Task Management - Create Task">
+            </div>
+
+            <div class="instructions">
+                <h3>Creating and Managing Tasks:</h3>
+                <ol class="steps">
+                    <li>Create New Tasks:
+                        <ul class="sub-steps">
+                            <li>Click the "+ Create Task" button located at the top-right of the dashboard.</li>
+                            <li>Fill in the task creation form with all required details.</li>
+                            <li>Enter a clear and descriptive task title.</li>
+                            <li>Provide detailed description and specific requirements.</li>
+                            <li>Set the task priority level: Low, Medium, High, or Urgent.</li>
+                            <li>Assign the task to specific team members or yourself.</li>
+                            <li>Set due date and deadline for task completion.</li>
+                            <li>Attach relevant files, documents, or reference materials.</li>
+                            <li>Add tags or categories for easy filtering and organization.</li>
+                            <li>Save the task to add it to the task management system.</li>
+                        </ul>
+                    </li>
+                    <li>Manage Existing Tasks:
+                        <ul class="sub-steps">
+                            <li>View all created tasks in the organized task list.</li>
+                            <li>Click on any task card to view full details and history.</li>
+                            <li>Edit task details, priorities, or assignments as needed.</li>
+                            <li>Update task status to reflect current progress.</li>
+                            <li>Add comments and notes to document progress or issues.</li>
+                            <li>Set reminders for upcoming deadlines.</li>
+                            <li>Mark tasks as complete when finished.</li>
+                            <li>Archive completed tasks for historical reference.</li>
+                            <li>Track overall task completion rate and team productivity.</li>
+                        </ul>
+                    </li>
+                    <li>Assigned Tasks to Team:
+                        <ul class="sub-steps">
+                            <li>Navigate to the "Assigned Tasks to Team" tab to see tasks you've assigned to others.</li>
+                            <li>Monitor the progress of tasks assigned to team members.</li>
+                            <li>View status updates and completion rates for delegated work.</li>
+                            <li>Receive notifications when team members update their task status.</li>
+                            <li>Follow up on overdue or at-risk tasks.</li>
+                            <li>Provide feedback or additional guidance through task comments.</li>
+                            <li>Reassign tasks if priorities change or team members are unavailable.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Task Management Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Organize, prioritize, assign, and track all work activities efficiently from a centralized dashboard.</p>
+                    <p><strong>Audience:</strong> Team members, managers, and administrators managing daily operations and project workflows.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Access dashboard: view Daily Tasks, Individual Tasks, and Assigned Tasks tabs.</li>
+                        <li>Check daily requirements: complete Lead Management Lookup and generate 5+ newsletters.</li>
+                        <li>Review pending items: approve newsletters and LinkedIn posts waiting for review.</li>
+                        <li>Create tasks: use "+ Create Task" to add new work items for yourself or team.</li>
+                        <li>Update status: mark tasks complete and track progress with visual indicators.</li>
+                        <li>Collaborate: communicate through task comments and notifications.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>User account: active access to the task management system.</li>
+                        <li>Role and permissions: appropriate access level for creating, viewing, and managing tasks.</li>
+                        <li>Understanding of priorities: knowledge of Low, Medium, High, and Urgent classifications.</li>
+                        <li>Team structure: awareness of team members for task assignment and collaboration.</li>
+                    </ul>
+
+                    <h4>Daily Task Workflow</h4>
+                    <ul>
+                        <li>Morning check: review the Daily Tasks tab for required activities.</li>
+                        <li>Lead Management: complete daily lead review and mark as done.</li>
+                        <li>Newsletter creation: generate minimum 5 newsletters to meet daily quota.</li>
+                        <li>Review queue: check and approve pending newsletters and LinkedIn posts.</li>
+                        <li>Progress tracking: monitor completion rates with visual progress bars.</li>
+                        <li>End-of-day: ensure all daily tasks are marked complete before logging off.</li>
+                    </ul>
+
+                    <h4>Individual Tasks Management</h4>
+                    <ul>
+                        <li>View assignments: access all projects and tasks assigned to you.</li>
+                        <li>Prioritize work: sort by due date, priority level, or project importance.</li>
+                        <li>Status updates: move tasks through pending → in-progress → completed stages.</li>
+                        <li>Communication: use task comments to ask questions or provide updates.</li>
+                        <li>Time management: estimate effort and allocate time based on deadlines.</li>
+                        <li>Documentation: log progress notes and decisions for future reference.</li>
+                    </ul>
+
+                    <h4>Creating Effective Tasks</h4>
+                    <ul>
+                        <li>Clear titles: use descriptive, action-oriented task names.</li>
+                        <li>Detailed descriptions: include context, requirements, and expected outcomes.</li>
+                        <li>Realistic deadlines: set achievable due dates with buffer time.</li>
+                        <li>Proper assignment: assign to the most appropriate team member.</li>
+                        <li>Priority setting: use Urgent only for true emergencies; High for important work.</li>
+                        <li>Attachments: include all necessary reference materials and documents.</li>
+                        <li>Tags and categories: apply consistent labels for easy filtering.</li>
+                    </ul>
+
+                    <h4>Team Collaboration</h4>
+                    <ul>
+                        <li>Assign tasks: delegate work clearly with all necessary information.</li>
+                        <li>Monitor progress: track team member task completion and provide support.</li>
+                        <li>Timely follow-up: check in on tasks approaching deadlines.</li>
+                        <li>Provide feedback: use comments to guide, encourage, or clarify requirements.</li>
+                        <li>Recognize completion: acknowledge when team members finish tasks.</li>
+                        <li>Adjust assignments: redistribute work if someone is overloaded or unavailable.</li>
+                    </ul>
+
+                    <h4>Notifications & Reminders</h4>
+                    <ul>
+                        <li>Badge indicators: red numbered badges show pending items requiring attention.</li>
+                        <li>Due date alerts: receive notifications for tasks approaching deadlines.</li>
+                        <li>Assignment notifications: get notified when tasks are assigned to you.</li>
+                        <li>Status updates: receive alerts when assigned tasks change status.</li>
+                        <li>Review requests: notifications when items need your approval.</li>
+                        <li>Comment mentions: alerts when someone mentions you in task comments.</li>
+                    </ul>
+
+                    <h4>Search & Filtering</h4>
+                    <ul>
+                        <li>Search bar: quickly find tasks by title, description, or assignee.</li>
+                        <li>Filter by status: view only pending, in-progress, or completed tasks.</li>
+                        <li>Filter by priority: focus on urgent or high-priority items.</li>
+                        <li>Filter by assignee: see tasks for specific team members.</li>
+                        <li>Filter by deadline: view tasks due today, this week, or overdue.</li>
+                        <li>Save filters: create custom views for frequently used filter combinations.</li>
+                    </ul>
+
+                    <h4>Progress Tracking</h4>
+                    <ul>
+                        <li>Visual indicators: green checkmarks for completed, grey dots for pending.</li>
+                        <li>Progress bars: see completion percentages for multi-step tasks.</li>
+                        <li>Count badges: numbered badges show quantity of pending items.</li>
+                        <li>Status colors: color coding helps identify task states at a glance.</li>
+                        <li>Completion rates: track personal and team productivity metrics.</li>
+                        <li>Historical data: review past task performance for process improvement.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Daily review: check your task dashboard first thing each morning.</li>
+                        <li>Status hygiene: update task status in real-time as you work.</li>
+                        <li>Proactive communication: comment on tasks before issues become blockers.</li>
+                        <li>Reasonable workload: don't overcommit; be realistic about capacity.</li>
+                        <li>Complete tasks: finish tasks fully before marking complete; avoid partial completion.</li>
+                        <li>Meet quotas: ensure daily newsletter generation and review requirements are met.</li>
+                        <li>Timely reviews: approve pending items promptly to avoid bottlenecks.</li>
+                        <li>Clear delegation: when assigning tasks, provide all context and resources needed.</li>
+                        <li>Archive completed: regularly archive old completed tasks to keep dashboard clean.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>Missing tasks: check all tabs (Daily, Individual, Assigned) and verify filters.</li>
+                        <li>Can't complete task: ensure all subtasks or requirements are finished first.</li>
+                        <li>Overdue alerts: prioritize overdue items; communicate delays to stakeholders.</li>
+                        <li>Assignment confusion: verify with task creator if requirements are unclear.</li>
+                        <li>Badge count mismatch: refresh the page or check if items were recently completed.</li>
+                        <li>Search not working: try simpler keywords or use filters instead.</li>
+                        <li>Permission issues: contact administrator if you can't access or create tasks.</li>
+                    </ul>
+
+                    <h4>Conclusion</h4>
+                    <p>The Task Management system is the central hub for all daily operations, ensuring nothing falls through the cracks. By maintaining discipline with daily tasks (especially the 5+ newsletter requirement), staying on top of individual assignments, effectively delegating team work, and using the review workflows for newsletters and LinkedIn posts, teams can achieve consistent productivity and quality. Regular use of status updates, progress tracking, and proactive communication keeps everyone aligned and projects moving forward smoothly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 5: Proposal Maker</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/PROPOSAL%20MAKER/PROPOSAL%20MAKER%20LANDING%20PAGE.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvUFJPUE9TQUwgTUFLRVIvUFJPUE9TQUwgTUFLRVIgTEFORElORyBQQUdFLnBuZyIsImlhdCI6MTc2NDc1NjA3MCwiZXhwIjozMTcxMjQ3NTYwNzB9.OViSlTXEN0GzUkWVU7HkEvz7Z9UgNbbGuoU2Jqzd7sQ" alt="Proposal Maker - Landing Page">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>By clicking the "Document" button, user can view the relevant inquiry documents.</li>
+                    <li>User can create the inquiry manually.</li>
+                    <li>User can view the questionnaire form and the AI-generated details of the questionnaires.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/PROPOSAL%20MAKER/PROPOSAL%20MAKER%20LANDING%20PAGE.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvUFJPUE9TQUwgTUFLRVIvUFJPUE9TQUwgTUFLRVIgTEFORElORyBQQUdFLnBuZyIsImlhdCI6MTc2NDc1NjgzNSwiZXhwIjozMTcxMjQ3NTY4MzV9.LPlIxTnqz3WvESFDhA1Vqzyk7LJYlFB9J_DE-xXqDhg" alt="Proposal Maker - Document Generation">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>By clicking the dropdown icon, user can view and generate the required document to the relevant inquiry.</li>
+                    <li>By clicking "View" on the relevant document, user can view the document and generate the document.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/PROPOSAL%20MAKER/SOW.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvUFJPUE9TQUwgTUFLRVIvU09XLnBuZyIsImlhdCI6MTc2NDc1NzE5MywiZXhwIjozMTcxMjQ3NTcxOTN9.2ow4sLNvu-22hEV5fKulKCpDnBwyW0rjScpt2h6fgtc" alt="Proposal Maker - Scope of Work (SOW)">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can select multiple versions of the Scope of Work.
+                        <ul class="sub-steps">
+                            <li>Browse through available SOW versions in the system.</li>
+                            <li>Select one or multiple versions that are relevant to your proposal.</li>
+                            <li>Compare different versions side by side if needed.</li>
+                            <li>Use the selected versions as reference or baseline for your proposal.</li>
+                        </ul>
+                    </li>
+                    <li>User can upload an Excel file that will be populated immediately.
+                        <ul class="sub-steps">
+                            <li>Click on the "Upload" button to select your Excel file.</li>
+                            <li>The system will immediately populate the SOW data from the uploaded Excel.</li>
+                            <li>Review the populated data to ensure accuracy.</li>
+                            <li>User will save that as a new version for future reference.</li>
+                            <li>The same version can be modified and updated as needed.</li>
+                            <li>All versions are stored and can be accessed later.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Proposal Maker Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Draft, share, and get proposals approved and e-signed quickly.</p>
+                    <p><strong>Audience:</strong> Sales, account managers, and founders preparing client proposals.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Select a template: choose a proposal layout aligned with your service.</li>
+                        <li>Add client details: company, contact, scope, and timelines.</li>
+                        <li>Define scope and pricing: packages, line items, discounts, payment terms.</li>
+                        <li>Insert terms: legal clauses, deliverables, acceptance criteria, change policy.</li>
+                        <li>Review and approve: internal approvals if required; lock the version.</li>
+                        <li>Share and e-sign: send the proposal link/PDF; collect signatures.</li>
+                        <li>Track and follow up: monitor views, comments, and acceptance status.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Client record: name, email, company, and billing info.</li>
+                        <li>Templates: standardized sections (cover, scope, pricing, terms).</li>
+                        <li>Approval flow: who must sign off internally for offer/discounts.</li>
+                        <li>E-signature setup: authorized signers and signature blocks.</li>
+                    </ul>
+
+                    <h4>Build Your Proposal</h4>
+                    <ul>
+                        <li>Choose template: pick by service type to prefill structure.</li>
+                        <li>Brand elements: logo, colors, cover letter, and contact details.</li>
+                        <li>Executive summary: the problem, your approach, and expected outcomes.</li>
+                        <li>Scope of work: tasks, milestones, deliverables, and responsibilities.</li>
+                        <li>Timeline: phases with start/end dates and dependencies.</li>
+                        <li>Assumptions: client responsibilities and out-of-scope items.</li>
+                    </ul>
+
+                    <h4>Pricing & Terms</h4>
+                    <ul>
+                        <li>Line items: unit price, quantity, taxes, and optional add-ons.</li>
+                        <li>Packages: tiered bundles; let clients select options if enabled.</li>
+                        <li>Discounts: percentage or fixed; require approval above thresholds.</li>
+                        <li>Payment terms: deposit, milestones, net-days, late fees, currency.</li>
+                        <li>Legal: cancellation, IP ownership, confidentiality, change requests.</li>
+                    </ul>
+
+                    <h4>Preview & Internal Approval</h4>
+                    <ul>
+                        <li>Rendering: check formatting on desktop/mobile and PDF export.</li>
+                        <li>Accuracy: validate totals, tax, and optional selections.</li>
+                        <li>Risk checks: margin, scope creep, and resource availability.</li>
+                        <li>Approvals: route to manager/legal if discount or clauses changed.</li>
+                    </ul>
+
+                    <h4>Share & E-Sign</h4>
+                    <ul>
+                        <li>Share method: send secure link or attach PDF; include a clear CTA.</li>
+                        <li>Signers: assign client signers and your organization signers.</li>
+                        <li>Signature blocks: name, title, date; initial where required.</li>
+                        <li>Audit trail: capture views, signatures, and version history.</li>
+                    </ul>
+
+                    <h4>Track & Negotiate</h4>
+                    <ul>
+                        <li>Engagement: see opens, time on page, section hotspots.</li>
+                        <li>Comments: respond to questions; adjust scope via controlled revisions.</li>
+                        <li>Revisions: version proposals; keep diffs and change log.</li>
+                        <li>Acceptance: mark as accepted; lock content and pricing.</li>
+                    </ul>
+
+                    <h4>Convert & Handoff</h4>
+                    <ul>
+                        <li>Contract: generate final agreement from accepted proposal.</li>
+                        <li>Invoice: create deposit/milestone invoices with linked line items.</li>
+                        <li>Project setup: auto-create project, tasks, and timeline from scope.</li>
+                        <li>CRM sync: update opportunity stage and attach documents.</li>
+                    </ul>
+
+                    <h4>Compliance & Safety</h4>
+                    <ul>
+                        <li>Standard terms: use approved clause library; avoid ad-hoc edits.</li>
+                        <li>Data privacy: exclude sensitive PII; secure links with access control.</li>
+                        <li>Signer validation: verified emails and role-based permissions.</li>
+                        <li>Record retention: store signed PDFs and audit logs per policy.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>Client can't open link: verify access permissions and expiration.</li>
+                        <li>Totals incorrect: check taxes, discounts, and optional selections.</li>
+                        <li>Approval blocked: confirm approver assignment and thresholds.</li>
+                        <li>Signature fails: ensure signer identity and required fields complete.</li>
+                        <li>Scope disputes: reference assumptions and change request policy.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Lead with outcomes: focus on value, not just features.</li>
+                        <li>Keep pricing clear: simple packages and transparent terms.</li>
+                        <li>Use options: offer good/better/best to improve close rates.</li>
+                        <li>Limit revisions: maintain a single source of truth with versioning.</li>
+                        <li>Follow up promptly: schedule reminders after views without signature.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 6: LinkedIn</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/linked%20in/linkedin%201.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGlua2VkIGluL2xpbmtlZGluIDEucG5nIiwiaWF0IjoxNzY0NzYwMzY0LCJleHAiOjMzMzAwNzYwMzY0fQ.nbMcgGufHvez0iILqhql089OaqwNX2J12S7TNU4H6D4" alt="LinkedIn - Campaign Management">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can activate and deactivate the campaigns.
+                        <ul class="sub-steps">
+                            <li>Navigate to the campaigns section in the LinkedIn module.</li>
+                            <li>View the list of all available campaigns with their current status.</li>
+                            <li>Click on the "Activate" button to enable a campaign.</li>
+                            <li>Click on the "Deactivate" button to disable a campaign when needed.</li>
+                            <li>Monitor active campaigns and their performance metrics.</li>
+                            <li>Toggle campaign status as per your posting schedule and requirements.</li>
+                        </ul>
+                    </li>
+                    <li>User can manage preferences while generating content.
+                        <ul class="sub-steps">
+                            <li>Access the content generation preferences settings.</li>
+                            <li>Set preferences for festival and event-based content inclusion.</li>
+                            <li>Choose whether to include festival content in generated posts.</li>
+                            <li>Specify which events should trigger special content generation.</li>
+                            <li>Configure seasonal and holiday content preferences.</li>
+                            <li>Save your preferences for future content generation.</li>
+                            <li>The system will automatically include or exclude festival/event content based on your saved preferences.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/linked%20in/LINKED%20IN%202.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGlua2VkIGluL0xJTktFRCBJTiAyLnBuZyIsImlhdCI6MTc2NDc2MDg1NiwiZXhwIjozMTcxMjQ3NjA4NTZ9.Yaf-2xvT-CUyLUFbNYUy-RFnfWiUt63cKy-EPA-e7Ks" alt="LinkedIn - Timeline Setup">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can continue by clicking navigate to the timeline setup of the campaign.</li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/linked%20in/LINKED%20IN%204.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGlua2VkIGluL0xJTktFRCBJTiA0LmpwZWciLCJpYXQiOjE3NjQ3NjE4NDQsImV4cCI6MzMzMDA3NjE4NDR9.xEe4Wkz7L979H1LFlxyhvhIeyV0FKXvsK8nEm0ElCJM" alt="LinkedIn - Edit Timeline">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can edit the timeline on this.
+                        <ul class="sub-steps">
+                            <li>Click on the timeline to edit posting schedule.</li>
+                            <li>Modify dates, times, and frequency as needed.</li>
+                            <li>Save the updated timeline configuration.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/linked%20in/LINKED%20IN%205.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvbGlua2VkIGluL0xJTktFRCBJTiA1LnBuZyIsImlhdCI6MTc2NDc2MTk5NSwiZXhwIjozMTcxMjQ3NjE5OTV9.N5kIFx-h3bZFaUQHkWUmlnbBNmiDLeUb5vPGt6G_X0o" alt="LinkedIn - Create Campaign">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can create the campaign for LinkedIn.
+                        <ul class="sub-steps">
+                            <li>Click on "Create Campaign" button.</li>
+                            <li>Fill in campaign details and settings.</li>
+                            <li>Save the campaign to start posting.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete LinkedIn Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Set up, publish, and grow a professional LinkedIn Page; convert engagement into leads.</p>
+                    <p><strong>Audience:</strong> Marketing, HR, founders, and community managers.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Set up the page: add logo, banner, tagline, and company details.</li>
+                        <li>Define voice and topics: brand guidelines and 3-5 core content pillars.</li>
+                        <li>Publish posts: short updates, images/videos, documents, and articles.</li>
+                        <li>Engage: reply to comments, mention partners, use relevant hashtags.</li>
+                        <li>Measure: track reach, engagement rate, clicks, and follower growth.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Page admin access: assign roles (admin, content, analyst).</li>
+                        <li>Brand assets: logo (square), banner (cover image), color palette.</li>
+                        <li>Boilerplate: about text, website, industry, specialties, HQ location.</li>
+                        <li>Link tracking: UTM parameters for campaign attribution.</li>
+                    </ul>
+
+                    <h4>Set Up Your Page</h4>
+                    <ul>
+                        <li>Identity: name, logo, banner, tagline, and custom URL.</li>
+                        <li>About: overview, mission, products/services, and contact info.</li>
+                        <li>CTA: add primary button (Visit website, Contact us, Sign up).</li>
+                        <li>Showcase pages: optional sub-pages for distinct products or programs.</li>
+                        <li>Policy: community guidelines and posting cadence.</li>
+                    </ul>
+
+                    <h4>Create Content</h4>
+                    <ul>
+                        <li>Post types: text, image carousel, video, document (PDF), link share, poll.</li>
+                        <li>Long-form: publish articles for thought leadership and SEO.</li>
+                        <li>Hashtags: 3-5 relevant tags; follow industry hashtags to discover content.</li>
+                        <li>Mentions: tag customers/partners to expand reach; secure permission first.</li>
+                        <li>Formatting: strong hook in first line; 2-5 short paragraphs; clear CTA.</li>
+                        <li>Accessibility: captions for videos; alt text for images/documents.</li>
+                    </ul>
+
+                    <h4>Publish & Schedule</h4>
+                    <ul>
+                        <li>Cadence: 2-4 posts/week; avoid bursts and long gaps.</li>
+                        <li>Timing: post during audience business hours; test time zones.</li>
+                        <li>Scheduling: plan a weekly content calendar; reserve slots for news.</li>
+                        <li>Link preview: validate thumbnails and titles; fix with Open Graph on your site.</li>
+                    </ul>
+
+                    <h4>Engage & Grow</h4>
+                    <ul>
+                        <li>Comments: reply within 24 hours; moderate respectfully.</li>
+                        <li>Employee advocacy: encourage team shares; provide copy snippets.</li>
+                        <li>Community: join conversations via comments on industry posts.</li>
+                        <li>Partnerships: co-create content with customers and influencers.</li>
+                        <li>Events: promote webinars and in-person events; recap highlights.</li>
+                    </ul>
+
+                    <h4>Measure & Optimize</h4>
+                    <ul>
+                        <li>Core metrics: impressions, engagement rate, reactions/comments/shares, CTR, followers.</li>
+                        <li>Audience insights: visitor demographics, job functions, locations, seniority.</li>
+                        <li>Content analysis: compare formats (video vs doc), topics, and hooks.</li>
+                        <li>Iteration: A/B test first lines, thumbnails, and CTAs; keep winners.</li>
+                    </ul>
+
+                    <h4>Ads & Lead Gen (Optional)</h4>
+                    <ul>
+                        <li>Objectives: brand awareness, website visits, lead generation forms.</li>
+                        <li>Targeting: job title, industry, skills, company size; use matched audiences.</li>
+                        <li>Creatives: single image, carousel, video, document ads; align to funnel stage.</li>
+                        <li>Lead gen forms: prefilled fields; sync to CRM; create auto-responder.</li>
+                    </ul>
+
+                    <h4>Permissions & Safety</h4>
+                    <ul>
+                        <li>Roles: limit admin to trusted users; use content role for publishers.</li>
+                        <li>Governance: approval workflow for sensitive posts; legal review when needed.</li>
+                        <li>Brand protection: avoid confidential data; respect NDAs.</li>
+                        <li>Compliance: disclose sponsored content; follow platform policies.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>Low reach: improve first-line hook, posting time, and content relevance; add native formats (video/document).</li>
+                        <li>Broken link preview: update OG tags; re-scrape; upload a native image with the link.</li>
+                        <li>Engagement drop: ask questions, use polls, add clearer CTA; reduce frequency if fatigued.</li>
+                        <li>Role issues: verify admin assignments; check two-factor and account health.</li>
+                        <li>Negative comments: set moderation policy; respond calmly; escalate when necessary.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Value-first: educate, inform, or entertain; avoid pure promotion.</li>
+                        <li>Consistency: keep visual identity and tone uniform across posts.</li>
+                        <li>Human stories: highlight people, customers, and behind-the-scenes.</li>
+                        <li>Native content: prefer documents and videos uploaded to LinkedIn.</li>
+                        <li>Repurpose: turn blogs into carousels, webinars into clips, and case studies into posts.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="module">
+            <h2 class="module-title">Module 7: Data Management</h2>
+            
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/DATA%20MANAGNMENT/DATA%20MANAGNMENT%201.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvREFUQSBNQU5BR05NRU5UL0RBVEEgTUFOQUdOTUVOVCAxLnBuZyIsImlhdCI6MTc2NDc2MjY1NSwiZXhwIjozMTcxMjQ3NjI2NTV9.IXVUAoyXUTayCkQ5J23uKhS35iqsn2wf_LX93GDS6nM" alt="Data Management - Overview">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can add events conducted by the company.
+                        <ul class="sub-steps">
+                            <li>Add company events to the system.</li>
+                            <li>When the next newsletter is generated, these events will be automatically included.</li>
+                            <li>Update event details as needed before newsletter generation.</li>
+                        </ul>
+                    </li>
+                    <li>User can add achievements for past generated content.
+                        <ul class="sub-steps">
+                            <li>Add company achievements to the system.</li>
+                            <li>These achievements will be included in future newsletter generations.</li>
+                            <li>Manage and update achievements as they occur.</li>
+                        </ul>
+                    </li>
+                    <li>User can manage email groups here.
+                        <ul class="sub-steps">
+                            <li>Create and organize email groups for different audiences.</li>
+                            <li>Add or remove contacts from email groups.</li>
+                            <li>Manage group settings and preferences.</li>
+                        </ul>
+                    </li>
+                    <li>User can add announcements that will be included in newsletter generation.
+                        <ul class="sub-steps">
+                            <li>Add important company announcements to the system.</li>
+                            <li>Announcements will automatically be included in newsletter generation.</li>
+                            <li>Update or remove announcements as needed.</li>
+                        </ul>
+                    </li>
+                    <li>User can create case studies for cold mail.
+                        <ul class="sub-steps">
+                            <li>Create and add case studies to the system.</li>
+                            <li>Case studies can be used in cold mail generation.</li>
+                            <li>Manage and update case studies for better email content.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/DATA%20MANAGNMENT/CASE%20STUDY%20DOUNLOAD.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvREFUQSBNQU5BR05NRU5UL0NBU0UgU1RVRFkgRE9VTkxPQUQucG5nIiwiaWF0IjoxNzY0NzY0MzAyLCJleHAiOjMxNzEyNDc2NDMwMn0.UZJGT99fqFaIy08ploscObgUyGypUyHkfgUbP8jA88Q" alt="Data Management - Case Study Edit and Download">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can edit and download the case study on this page.
+                        <ul class="sub-steps">
+                            <li>View the AI-generated case study with customized content.</li>
+                            <li>Edit the case study content to match your requirements.</li>
+                            <li>The content is relevant to exact case studies from your official website.</li>
+                            <li>Download the finalized case study for use in cold mails.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/DATA%20MANAGNMENT/SEGNMENTS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvREFUQSBNQU5BR05NRU5UL1NFR05NRU5UUy5wbmciLCJpYXQiOjE3NjQ3NjQ2NjgsImV4cCI6MzE3MTI0NzY0NjY4fQ.ZAoFab2d4l8wUE2f01TXRyHETVl_GSWQNDUuQ8B4Ci4" alt="Data Management - Segments">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>User can perform CRUD operations for segments.
+                        <ul class="sub-steps">
+                            <li>Create new segments for organizing data.</li>
+                            <li>Read and view existing segments.</li>
+                            <li>Update segment details and configurations.</li>
+                            <li>Delete segments that are no longer needed.</li>
+                        </ul>
+                    </li>
+                    <li>User can perform CRUD operations for URLs.
+                        <ul class="sub-steps">
+                            <li>Add new URLs to the system.</li>
+                            <li>View and manage existing URLs.</li>
+                            <li>Edit URL details and metadata.</li>
+                            <li>Remove outdated URLs.</li>
+                        </ul>
+                    </li>
+                    <li>User can perform CRUD operations for keywords.
+                        <ul class="sub-steps">
+                            <li>Create new keywords for content targeting.</li>
+                            <li>View all keywords in the system.</li>
+                            <li>Update keyword relevance and priority.</li>
+                            <li>Delete unused keywords.</li>
+                        </ul>
+                    </li>
+                    <li>User can perform CRUD operations for sub-segments.
+                        <ul class="sub-steps">
+                            <li>Create sub-segments within main segments.</li>
+                            <li>View and organize sub-segments.</li>
+                            <li>Modify sub-segment properties.</li>
+                            <li>Remove unnecessary sub-segments.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="image-container">
+                <img src="https://supabase.sesai.in/storage/v1/object/sign/sop/DATA%20MANAGNMENT/TEAM%20MEMBERS.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzb3AvREFUQSBNQU5BR05NRU5UL1RFQU0gTUVNQkVSUy5wbmciLCJpYXQiOjE3NjQ3NjUyMzAsImV4cCI6MzE3MTI0NzY1MjMwfQ.cXx6GCPGi9rRa_zIf65umif1JjU3bgDNkOfQtqTHLVI" alt="Data Management - Team Members">
+            </div>
+
+            <div class="instructions">
+                <h3>How to Operate:</h3>
+                <ol class="steps">
+                    <li>Only the admin has the provision to perform CRUD operations on the team member page.
+                        <ul class="sub-steps">
+                            <li>Admin can create new team members by adding their details.</li>
+                            <li>Admin can view all team members and their information.</li>
+                            <li>Admin can update team member roles and permissions.</li>
+                            <li>Admin can delete team members from the system.</li>
+                            <li>Regular users cannot perform these operations - admin access only.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="summary-section">
+                <h3 class="summary-title">User Perspective Guide - Complete Data Management Workflow</h3>
+                
+                <div class="summary-content">
+                    <p><strong>Goal:</strong> Organize, validate, secure, and use your data consistently across modules.</p>
+                    <p><strong>Audience:</strong> Admins, data stewards, and power users managing records, schemas, and policies.</p>
+
+                    <h4>Quick Start</h4>
+                    <ul>
+                        <li>Create a dataset: define fields, types, and required validations.</li>
+                        <li>Import data: upload CSV/XLSX or connect to an integration; preview mapping.</li>
+                        <li>Clean data: run validation checks, deduplicate, and merge duplicates.</li>
+                        <li>Tag sensitive fields: mark PII and set retention/visibility rules.</li>
+                        <li>Set permissions: assign who can view, edit, export, or delete.</li>
+                        <li>Monitor quality: track errors, completeness, and changes via the dashboard.</li>
+                    </ul>
+
+                    <h4>Prerequisites</h4>
+                    <ul>
+                        <li>Roles and permissions: admin/data-steward access for schema and governance.</li>
+                        <li>Field standards: naming rules, data types, and accepted value lists.</li>
+                        <li>Policies: retention windows, consent records, and deletion procedures.</li>
+                        <li>Integrations: CRM/marketing/finance connectors and API keys configured.</li>
+                    </ul>
+
+                    <h4>Catalog & Schema</h4>
+                    <ul>
+                        <li>Datasets: create logical collections (e.g., Customers, Leads, Projects).</li>
+                        <li>Fields: set type (text, number, date, enum, email, phone), required, default, unique.</li>
+                        <li>Relationships: link datasets (e.g., Customer → Proposals); enforce referential integrity.</li>
+                        <li>Versioning: edit schema safely; keep migration history and rollback options.</li>
+                        <li>Metadata: descriptions, owners, tags, and data lineage references.</li>
+                    </ul>
+
+                    <h4>Import & Capture</h4>
+                    <ul>
+                        <li>File upload: map columns to fields; set parsing rules and date formats.</li>
+                        <li>Integrations: sync from external systems; choose full or incremental imports.</li>
+                        <li>Forms: enable manual entry with inline validation and field help text.</li>
+                        <li>Staging: preview imported rows; fix mapping issues before finalizing.</li>
+                        <li>Schedules: automate recurring imports; alert on failures.</li>
+                    </ul>
+
+                    <h4>Data Quality</h4>
+                    <ul>
+                        <li>Validation rules: required fields, pattern checks, ranges, and enum memberships.</li>
+                        <li>Deduplication: configure match keys (email/phone/name+company); merge strategy.</li>
+                        <li>Standardization: normalize casing, trim spaces, format phone/country codes.</li>
+                        <li>Completeness: track fill rates; prioritize fields critical to workflows.</li>
+                        <li>Error handling: quarantine bad records; bulk fix with guided actions.</li>
+                    </ul>
+
+                    <h4>Governance</h4>
+                    <ul>
+                        <li>PII classification: tag sensitive fields (name, email, phone, address).</li>
+                        <li>Consent and lawful basis: store opt-in source, timestamp, and scope of use.</li>
+                        <li>Retention: auto-archive or delete after policy windows; log actions.</li>
+                        <li>Right-to-be-forgotten: process deletion requests; propagate to linked datasets.</li>
+                        <li>Audit trail: record creates/updates/deletes, user, timestamp, and changes.</li>
+                    </ul>
+
+                    <h4>Access & Security</h4>
+                    <ul>
+                        <li>Role-based access: dataset and field-level permissions (view/edit/export).</li>
+                        <li>Sharing controls: restrict exports and API read access for sensitive data.</li>
+                        <li>Approvals: require manager sign-off for bulk edits or large exports.</li>
+                        <li>Masking: hide PII in UI lists; reveal on demand for authorized roles.</li>
+                        <li>Alerts: notify owners on access violations or unusual activity.</li>
+                    </ul>
+
+                    <h4>Backup & Recovery</h4>
+                    <ul>
+                        <li>Snapshots: schedule backups; include schemas and records.</li>
+                        <li>Restore: recover to a point-in-time; validate integrity post-restore.</li>
+                        <li>Export: generate CSV/JSON for safe off-platform storage when permitted.</li>
+                        <li>Continuity: document RPO/RTO and test recovery scenarios periodically.</li>
+                    </ul>
+
+                    <h4>Monitoring & Reporting</h4>
+                    <ul>
+                        <li>Dashboards: data quality score, error trends, completeness by field.</li>
+                        <li>Change logs: daily/weekly summaries of adds, edits, deletes.</li>
+                        <li>Usage: who accessed/exported which datasets; top queries.</li>
+                        <li>Health checks: integration sync status, import success rate, latency.</li>
+                    </ul>
+
+                    <h4>Troubleshooting</h4>
+                    <ul>
+                        <li>Import fails: check column mapping, types, and date formats; inspect staging errors.</li>
+                        <li>Duplicate records: refine match keys; run merge with reviewed conflict resolution.</li>
+                        <li>Permission denied: verify role and dataset/field privileges; request access change.</li>
+                        <li>Validation errors: adjust rules or correct data; use bulk fix tools.</li>
+                        <li>Missing data: confirm integration filters, schedules, and API credentials.</li>
+                    </ul>
+
+                    <h4>Best Practices</h4>
+                    <ul>
+                        <li>Single source of truth: maintain canonical datasets; avoid shadow copies.</li>
+                        <li>Small, safe changes: evolve schemas with versioning and migration notes.</li>
+                        <li>Minimum PII: collect only what's necessary; mask and limit exports.</li>
+                        <li>Automate checks: scheduled validations and dedupe runs reduce manual effort.</li>
+                        <li>Document conventions: field definitions, accepted values, and business rules.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
