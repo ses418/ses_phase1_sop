@@ -15,13 +15,13 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --blue-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --primary-gradient: linear-gradient(135deg, #1f4b99 0%, #2563eb 100%);
+            --secondary-gradient: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+            --blue-gradient: linear-gradient(135deg, #2563eb 0%, #60a5fa 100%);
             --green-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --purple-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
+            --purple-gradient: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+            --primary-color: #1f4b99;
+            --secondary-color: #2563eb;
             --text-dark: #1a202c;
             --text-light: #4a5568;
             --text-muted: #718096;
@@ -255,9 +255,9 @@
         .summary-section {
             margin-top: 50px;
             padding: 45px;
-            background: linear-gradient(135deg, #e0f2fe 0%, #dbeafe 100%);
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f7ff 100%);
             border-radius: 16px;
-            border: 2px solid #bae6fd;
+            border: 2px solid #bcd0ff;
             box-shadow: var(--shadow-lg);
             position: relative;
             overflow: hidden;
@@ -466,25 +466,27 @@
                     <li><strong>Key Features & Navigation:</strong>
                         <ul class="sub-steps">
                             <li><strong>Search Functionality:</strong> Use the search bar to quickly find projects by title, client name, or lead information.</li>
-                            <li><strong>Filter Options:</strong> Filter leads by Client/Lead dropdown to narrow down your view and focus on specific categories.</li>
+                            <li><strong>Filter Options:</strong> Filter by Client/Lead, segment, and subsegment to narrow down your view and focus on specific categories.</li>
                             <li><strong>Project Tabs:</strong> Navigate between "New Projects", "Viewed Projects", and "Conversation" tabs to organize your workflow.</li>
                             <li><strong>Project Counter:</strong> Real-time count of projects in each category (e.g., 179 New Projects) helps prioritize your workload.</li>
-                            <li><strong>Data Table:</strong> Organized columns display S.NO, PROJECT TITLE, TYPE (PP/RD), LOCATION, VALIDATION SCORE, and LEADS count.</li>
+                            <li><strong>Data Table:</strong> Organized columns display S.NO, PROJECT TITLE, TYPE (PP/RD/GP/CP), LOCATION, VALIDATION SCORE, and LEADS count.</li>
+                            <li><strong>Type Legend:</strong> PP = Potential Project, RD = Research & Development, GP = Government Policies, CP = Completed Project.</li>
                         </ul>
                     </li>
                     <li><strong>Understanding Project Types:</strong>
                         <ul class="sub-steps">
-                            <li><strong>PP (Proposed Project):</strong> Projects in planning or proposal stage requiring active pursuit and engagement.</li>
+                            <li><strong>PP (Potential Project):</strong> Projects in planning or proposal stage requiring active pursuit and engagement.</li>
                             <li><strong>RD (Research & Development):</strong> Projects focused on R&D activities, innovation, and technical development opportunities.</li>
+                            <li><strong>GP (Government Policies):</strong> Projects tracked via relevant government policy sources.</li>
+                            <li><strong>CP (Completed Project):</strong> Projects marked complete with verified outcomes.</li>
                             <li>The TYPE column helps you quickly identify the nature of each project for better categorization and follow-up strategies.</li>
                         </ul>
                     </li>
                     <li><strong>Validation Score System:</strong>
                         <ul class="sub-steps">
-                            <li>Each project is assigned a validation score that indicates lead quality and conversion potential.</li>
-                            <li>Higher validation scores suggest better-qualified leads worthy of immediate attention and resources.</li>
-                            <li>Use validation scores to prioritize outreach efforts and allocate team resources effectively.</li>
-                            <li>Score ranges help identify hot leads versus those requiring nurturing campaigns.</li>
+                            <li>Validation score reflects the count of verified source links for a project.</li>
+                            <li>Example: score is 4 — the project has verified evidence from 4 different sources; links are listed in news_mentioned_source.</li>
+                            <li>Validation score does not relate to lead count; it is source verification only.</li>
                         </ul>
                     </li>
                     <li><strong>Interactive Project Selection:</strong>
@@ -589,6 +591,7 @@
                     <li>Click on the "Filter" button to open the filter options panel.</li>
                     <li>Apply filters to narrow down your search and view specific projects based on your criteria.
                         <ul class="sub-steps">
+                            <li>Filter by segment and subsegment to target specific categories.</li>
                             <li>Filter by project status (New, Viewed, Conversation).</li>
                             <li>Filter by date range to view projects from specific time periods.</li>
                             <li>Filter by client or company name to find specific leads.</li>
